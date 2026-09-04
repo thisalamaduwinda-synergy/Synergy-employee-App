@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Every screen transition in the app lives here.
+
+  The start destination is set in code (MainActivity), not declared, because it
+  depends on whether there is a session on the phone: a returning employee must
+  land on Home, not flash the login screen first.
+-->
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <!-- 01 -->
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="lk.synergypharma.employee.ui.auth.LoginFragment"
+        android:label="Log in"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_login_to_home"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_login_to_register"
+            app:destination="@id/registerFragment" />
+    </fragment>
+
+    <!-- First-time registration. Activates an existing employee record; it
+         never creates one. -->
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="lk.synergypharma.employee.ui.auth.RegisterFragment"
+        android:label="Register"
+        tools:layout="@layout/fragment_register">
+        <!-- Ends signed in, with both register and login cleared off the stack. -->
+        <action
+            android:id="@+id/action_register_to_home"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <!-- 02 -->
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="lk.synergypharma.employee.ui.home.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home" />
+
+    <!-- 04 -->
+    <fragment
+        android:id="@+id/attendanceFragment"
+        android:name="lk.synergypharma.employee.ui.attendance.AttendanceFragment"
+        android:label="Attendance"
+        tools:layout="@layout/fragment_attendance" />
+
+    <!-- 07 -->
+    <fragment
+        android:id="@+id/leaveFragment"
+        android:name="lk.synergypharma.employee.ui.leave.LeaveFragment"
+        android:label="Leave"
+        tools:layout="@layout/fragment_leave" />
+
+    <!-- 14 -->
+    <fragment
+        android:id="@+id/moreFragment"
+        android:name="lk.synergypharma.employee.ui.profile.MoreFragment"
+        android:label="More"
+        tools:layout="@layout/fragment_more" />
+
+    <!-- 03 · reached from Home, from a calendar day, and from the OT list -->
+    <fragment
+        android:id="@+id/gateLogFragment"
+        android:name="lk.synergypharma.employee.ui.attendance.GateLogFragment"
+        android:label="Gate log"
+        tools:layout="@layout/fragment_gate_log">
+        <argument
+            android:name="arg_date"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+
+    <!-- 05 · reached from the home alert, a red calendar day, or a notification -->
+    <fragment
+        android:id="@+id/absenceReasonFragment"
+        android:name="lk.synergypharma.employee.ui.absence.AbsenceReasonFragment"
+        android:label="Absence reason"
+        tools:layout="@layout/fragment_absence_reason">
+        <argument
+            android:name="arg_date"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+
+    <!-- 08 -->
+    <fragment
+        android:id="@+id/applyLeaveFragment"
+        android:name="lk.synergypharma.employee.ui.leave.ApplyLeaveFragment"
+        android:label="Apply for leave"
+        tools:layout="@layout/fragment_apply_leave" />
+
+    <!-- 06 -->
+    <fragment
+        android:id="@+id/overtimeFragment"
+        android:name="lk.synergypharma.employee.ui.overtime.OvertimeFragment"
+        android:label="Overtime"
+        tools:layout="@layout/fragment_overtime" />
+
+    <!-- 13 -->
+    <fragment
+        android:id="@+id/notificationsFragment"
+        android:name="lk.synergypharma.employee.ui.notification.NotificationsFragment"
+        android:label="Notifications"
+        tools:layout="@layout/fragment_notifications" />
+
+    <!-- Logging out unwinds the whole back stack, from wherever the employee is. -->
+    <action
+        android:id="@+id/action_global_login"
+        app:destination="@id/loginFragment"
+        app:popUpTo="@id/nav_graph"
+        app:popUpToInclusive="true" />
+
+    <action
+        android:id="@+id/action_global_gate_log"
+        app:destination="@id/gateLogFragment" />
+
+    <action
+        android:id="@+id/action_global_absence_reason"
+        app:destination="@id/absenceReasonFragment" />
+
+    <action
+        android:id="@+id/action_global_apply_leave"
+        app:destination="@id/applyLeaveFragment" />
+
+    <action
+        android:id="@+id/action_global_overtime"
+        app:destination="@id/overtimeFragment" />
+
+    <action
+        android:id="@+id/action_global_notifications"
+        app:destination="@id/notificationsFragment" />
+
+    <action
+        android:id="@+id/action_global_attendance"
+        app:destination="@id/attendanceFragment" />
+
+</navigation>

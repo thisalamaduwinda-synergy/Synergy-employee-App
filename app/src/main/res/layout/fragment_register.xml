@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Three steps in one destination rather than three: the flow is short, strictly
+  linear, and every step needs the ones before it. Splitting it would mean a
+  nested navigation graph and a shared ViewModel to carry three fields.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/surface_bg"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/include_header_simple" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:padding="@dimen/space_16">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- ===================== progress ===================== -->
+            <TextView
+                android:id="@+id/text_step"
+                style="@style/TextAppearance.Synergy.Overline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Step 1 of 3" />
+
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/progress_steps"
+                style="@style/Widget.Synergy.Progress.Bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_6"
+                android:max="3"
+                tools:progress="1" />
+
+            <!--
+              Not "text_title": include_header_simple already owns that id, and a
+              duplicate across an include binds to whichever view the hierarchy
+              reaches first — which put this heading in the toolbar.
+            -->
+            <TextView
+                android:id="@+id/text_step_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_16"
+                android:textColor="@color/ink"
+                android:textSize="19sp"
+                android:textStyle="bold"
+                tools:text="Confirm who you are" />
+
+            <TextView
+                android:id="@+id/text_step_subtitle"
+                style="@style/TextAppearance.Synergy.Body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_6"
+                android:lineSpacingMultiplier="1.4"
+                tools:text="You are already in the system — HR enrolled you at the gate. This just sets your password." />
+
+            <!-- ================== step 1 · identity ================== -->
+            <LinearLayout
+                android:id="@+id/group_identity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_20"
+                android:orientation="vertical">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_employee_code"
+                    style="@style/Widget.Synergy.TextField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/login_employee_id"
+                    app:startIconDrawable="@drawable/ic_users">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edit_employee_code"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:inputType="textCapCharacters|textNoSuggestions"
+                        android:maxLines="1"
+                        tools:text="1213" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_nic"
+                    style="@style/Widget.Synergy.TextField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_10"
+                    android:hint="@string/register_nic"
+                    app:helperText="@string/register_nic_helper"
+                    app:startIconDrawable="@drawable/ic_clip">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edit_nic"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionDone"
+                        android:inputType="textCapCharacters|textNoSuggestions"
+                        android:maxLength="12"
+                        android:maxLines="1"
+                        tools:text="199512345678" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <!-- ==================== step 2 · OTP ==================== -->
+            <LinearLayout
+                android:id="@+id/group_otp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_20"
+                android:orientation="vertical"
+                android:visibility="gone"
+                tools:visibility="gone">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_otp"
+                    style="@style/Widget.Synergy.TextField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/register_otp"
+                    app:startIconDrawable="@drawable/ic_lock">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edit_otp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionDone"
+                        android:inputType="number"
+                        android:letterSpacing="0.3"
+                        android:maxLength="6"
+                        android:maxLines="1"
+                        android:textSize="18sp"
+                        tools:text="123456" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Mock builds only; hidden the moment a real backend is wired. -->
+                <TextView
+                    android:id="@+id/text_demo_otp"
+                    style="@style/TextAppearance.Synergy.Caption"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_8"
+                    android:background="@drawable/bg_rect_r10"
+                    android:backgroundTint="@color/slate_bg"
+                    android:padding="@dimen/space_10"
+                    android:textColor="@color/slate_deep"
+                    android:visibility="gone"
+                    tools:text="Demo build — the code is 123456"
+                    tools:visibility="visible" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button_resend"
+                    style="@style/Widget.Synergy.Button.Text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_4"
+                    android:text="@string/register_resend" />
+            </LinearLayout>
+
+            <!-- ================== step 3 · password ================== -->
+            <LinearLayout
+                android:id="@+id/group_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_20"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_password"
+                    style="@style/Widget.Synergy.TextField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/register_password"
+                    app:endIconMode="password_toggle"
+                    app:startIconDrawable="@drawable/ic_lock">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edit_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:inputType="textPassword"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_confirm"
+                    style="@style/Widget.Synergy.TextField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_10"
+                    android:hint="@string/register_password_confirm"
+                    app:endIconMode="password_toggle"
+                    app:startIconDrawable="@drawable/ic_lock">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edit_confirm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionDone"
+                        android:inputType="textPassword"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    style="@style/TextAppearance.Synergy.Caption"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_10"
+                    android:background="@drawable/bg_rect_r10"
+                    android:backgroundTint="@color/synergy_blue_50"
+                    android:lineSpacingMultiplier="1.4"
+                    android:padding="@dimen/space_12"
+                    android:text="@string/register_password_rules"
+                    android:textColor="@color/synergy_blue_800" />
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_primary"
+                style="@style/Widget.Synergy.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_20"
+                tools:text="Continue" />
+
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/progress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_10"
+                android:indeterminate="true"
+                android:visibility="gone"
+                app:indicatorColor="@color/synergy_blue_700"
+                app:trackCornerRadius="3dp" />
+
+            <TextView
+                android:id="@+id/text_have_account"
+                style="@style/TextAppearance.Synergy.Caption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_20"
+                android:background="?attr/selectableItemBackground"
+                android:gravity="center"
+                android:minHeight="@dimen/tap_target"
+                android:paddingVertical="@dimen/space_10"
+                android:text="@string/register_have_account"
+                android:textColor="@color/synergy_blue_700"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

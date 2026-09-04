@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Synergy Employee</string>
+    <string name="company_name">Synergy Pharmaceuticals Corporation (Pvt) Ltd</string>
+
+    <!-- ========================== Common =========================== -->
+    <string name="action_retry">Retry</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_ok">OK</string>
+    <string name="action_close">Close</string>
+    <string name="action_see_all">See all</string>
+    <string name="action_submit">Submit</string>
+    <string name="action_back">Back</string>
+    <string name="error_generic">Something went wrong. Please try again.</string>
+    <string name="error_no_network">No connection. Showing the last synced data.</string>
+    <string name="value_placeholder">—</string>
+    <string name="cd_logo">Synergy Pharmaceuticals logo</string>
+    <string name="cd_notifications">Notifications</string>
+    <string name="cd_gate_frame">Frame captured at the gate</string>
+
+    <!-- ======================= 01 · Log in ========================== -->
+    <string name="login_subtitle">Employee Portal</string>
+    <string name="login_employee_id">Employee ID / EPF No.</string>
+    <string name="login_employee_id_hint">e.g. SPC-1042</string>
+    <string name="login_password">Password</string>
+    <string name="login_action">Log in</string>
+    <string name="login_biometric">Use fingerprint / Face unlock</string>
+    <string name="login_biometric_title">Log in to Synergy Employee</string>
+    <string name="login_biometric_subtitle">Confirm it\'s you to open your attendance record</string>
+    <string name="login_first_time">First time here? Register your account</string>
+
+    <!-- ==================== First-time registration ==================== -->
+    <string name="register_title">Register</string>
+    <string name="register_step">Step %1$d of %2$d</string>
+    <string name="register_continue">Continue</string>
+    <string name="register_verify">Verify</string>
+    <string name="register_finish">Create my account</string>
+    <string name="register_have_account">Already registered? Sign in</string>
+
+    <string name="register_step1_title">Confirm who you are</string>
+    <!-- Says plainly that this is not a sign-up. Nobody is creating an account
+         out of nothing — HR already enrolled them at the gate. -->
+    <string name="register_step1_subtitle">You are already in the system — HR enrolled your face at the gate. This only sets the password you will use in the app.</string>
+    <string name="register_nic">NIC number</string>
+    <string name="register_nic_helper">Old (881234567V) or new (198812345678)</string>
+
+    <string name="register_step2_title">Check your phone</string>
+    <string name="register_step2_subtitle">We sent a 6-digit code to %1$s — the number HR has on your record. If that is not your number, contact HR.</string>
+    <string name="register_otp">6-digit code</string>
+    <string name="register_resend">Send the code again</string>
+    <string name="register_resent">A new code is on its way</string>
+    <string name="register_demo_otp">Demo build — no SMS is sent. The code is %1$s.</string>
+
+    <string name="register_step3_title">Choose a password</string>
+    <string name="register_step3_subtitle">You will use your employee number and this password to sign in.</string>
+    <string name="register_password">New password</string>
+    <string name="register_password_confirm">Type it again</string>
+    <string name="register_password_rules">At least 8 characters, with letters and numbers. Do not use your employee number or NIC — the people around you already know those.</string>
+    <string name="register_done">Account created. Welcome to Synergy Employee.</string>
+
+    <string name="register_error_nic_required">Enter your NIC number</string>
+    <string name="register_error_nic_format">That does not look like an NIC number</string>
+    <string name="register_error_otp_required">Enter the code from the SMS</string>
+    <string name="register_error_short">Use at least %1$d characters</string>
+    <string name="register_error_mix">Use both letters and numbers</string>
+    <string name="register_error_identity">Do not use your employee number or NIC</string>
+    <string name="register_error_mismatch">The two passwords do not match</string>
+    <string name="login_version">v%1$s · %2$s</string>
+    <string name="login_error_id_required">Enter your employee or EPF number</string>
+    <string name="login_error_password_required">Enter your password</string>
+    <string name="login_error_invalid">Employee number or password is incorrect</string>
+    <string name="login_biometric_unavailable">No fingerprint or face is enrolled on this phone</string>
+    <string name="login_biometric_needs_password">Log in with your password once, then biometric unlock turns on</string>
+
+    <!-- ======================== 02 · Home =========================== -->
+    <string name="home_greeting_morning">Good morning</string>
+    <string name="home_greeting_afternoon">Good afternoon</string>
+    <string name="home_greeting_evening">Good evening</string>
+    <string name="home_today">Today · %1$s</string>
+    <string name="home_face_verified">Face verified</string>
+    <string name="home_face_pending">No gate event yet</string>
+    <string name="home_gate_in">Gate IN</string>
+    <string name="home_gate_out">Gate OUT</string>
+    <string name="home_inside">Inside</string>
+    <string name="home_view_gate_log">View today\'s gate log</string>
+    <string name="home_qa_apply_leave">Apply leave</string>
+    <string name="home_qa_absence_reason">Absence reason</string>
+    <string name="home_qa_my_ot">My OT</string>
+    <string name="home_qa_payslip">Payslip</string>
+    <string name="home_missing_title">%1$s — no gate record</string>
+    <string name="home_missing_sub">Submit a reason before %1$s</string>
+    <string name="home_announcements">Announcements</string>
+    <string name="home_no_announcements">No announcements right now</string>
+    <string name="announcement_meta">%1$s · %2$s</string>
+    <string name="announcement_action_needed">Action needed</string>
+
+    <!-- ====================== 03 · Gate log ========================= -->
+    <string name="gate_log_title">Gate log — %1$s</string>
+    <!-- Net of the break. The card below shows gross "Total inside", so these
+         two must not both be called "inside" or they read as a contradiction. -->
+    <string name="gate_chip_inside">Worked %1$s</string>
+    <string name="gate_chip_ot">OT %1$s</string>
+    <string name="gate_direction_in">IN</string>
+    <string name="gate_direction_out">OUT</string>
+    <string name="gate_event_meta">%1$s · match %2$s</string>
+    <string name="gate_match_borderline">Borderline match — worth checking</string>
+    <string name="gate_shift">Shift</string>
+    <string name="gate_total_inside">Total inside</string>
+    <string name="gate_break_deducted">Break deducted</string>
+    <string name="gate_approved_ot">Approved OT</string>
+    <string name="gate_late_by">Late by</string>
+    <string name="gate_missing_checkout">No gate OUT was recorded. HR closed the day at your shift end.</string>
+    <string name="gate_adjusted_by">This day was adjusted by %1$s: %2$s</string>
+    <string name="gate_report_incorrect">Report an incorrect record</string>
+    <string name="gate_readonly_note">Records come from the gate face-recognition system and cannot be edited in the app. Corrections go to HR for review.</string>
+    <string name="gate_no_events">No gate events recorded on this day.</string>
+    <string name="gate_correction_title">Report an incorrect record</string>
+    <string name="gate_correction_hint">Describe what is wrong with this day\'s record</string>
+    <string name="gate_correction_sent">Sent to HR for review</string>
+
+    <!-- ====================== 04 · Attendance ======================= -->
+    <string name="attendance_title">Attendance</string>
+    <string name="attendance_worked">Worked</string>
+    <string name="attendance_ot_hours">OT hrs</string>
+    <string name="attendance_leave">Leave</string>
+    <string name="attendance_absent">Absent</string>
+    <string name="attendance_daily_record">Daily record</string>
+    <string name="attendance_prev_month">Previous month</string>
+    <string name="attendance_next_month">Next month</string>
+    <string name="day_state_worked">Worked</string>
+    <string name="day_state_leave">Leave</string>
+    <string name="day_state_absent">Absent</string>
+    <string name="day_state_holiday">Holiday</string>
+    <string name="day_state_off">Off</string>
+    <string name="attendance_summary_worked">%1$s – %2$s · %3$s</string>
+    <string name="attendance_summary_with_ot">%1$s – %2$s · %3$s · OT %4$s</string>
+    <string name="attendance_reason_pending">No gate record — reason pending</string>
+    <string name="attendance_empty">Nothing recorded for this month yet.</string>
+    <string name="weekday_initials">M,T,W,T,F,S,S</string>
+
+    <!-- =================== 05 · Absence reason ====================== -->
+    <string name="absence_title">Submit absence reason</string>
+    <string name="absence_alert_title">No gate record on %1$s</string>
+    <string name="absence_alert_sub">Marked absent automatically. Submit within %1$d days.</string>
+    <string name="absence_reason_type">Reason type</string>
+    <string name="reason_medical">Medical</string>
+    <string name="reason_personal">Personal</string>
+    <string name="reason_emergency">Emergency</string>
+    <string name="reason_official">Official duty</string>
+    <string name="absence_date">Date of absence</string>
+    <string name="absence_explanation">Explanation</string>
+    <string name="absence_explanation_hint">What happened? Keep it short and factual.</string>
+    <string name="absence_supporting_doc">Supporting document</string>
+    <string name="absence_add_file">Add a file</string>
+    <string name="absence_add_another_file">Add another file</string>
+    <string name="absence_add_file_hint">Camera, gallery or PDF · max 5 MB</string>
+    <string name="absence_send">Send to HR</string>
+    <string name="absence_source_camera">Take a photo</string>
+    <string name="absence_source_gallery">Choose from gallery</string>
+    <string name="absence_source_file">Pick a PDF</string>
+    <string name="absence_remove_file">Remove</string>
+    <string name="absence_file_meta">%1$s · uploaded</string>
+    <string name="absence_error_no_reason">Pick a reason type</string>
+    <string name="absence_error_no_explanation">Add a short explanation</string>
+    <string name="absence_error_medical_needs_doc">A medical reason needs a certificate attached</string>
+    <string name="absence_error_file_too_large">That file is over 5 MB. Try a photo instead.</string>
+    <string name="absence_submitted">Sent to HR. You will get a notification when it is reviewed.</string>
+    <string name="absence_no_pending">Nothing to explain — every working day has a gate record.</string>
+
+    <!-- ======================== 07 · Leave ========================== -->
+    <string name="leave_title">Leave</string>
+    <string name="leave_balance_year">Balance · %1$s</string>
+    <string name="leave_days_left">%1$s days left</string>
+    <string name="leave_type_annual">Annual</string>
+    <string name="leave_type_casual">Casual</string>
+    <string name="leave_type_medical">Medical</string>
+    <string name="leave_type_nopay">No-pay</string>
+    <string name="leave_type_maternity">Maternity</string>
+    <string name="leave_type_short">Short leave</string>
+    <string name="leave_type_other">Other</string>
+    <string name="leave_used_of">%1$s of %2$s</string>
+    <string name="leave_my_requests">My requests</string>
+    <string name="leave_request_summary">%1$s · %2$s</string>
+    <string name="leave_request_days">%1$s day</string>
+    <string name="leave_request_days_plural">%1$s days</string>
+    <string name="leave_half_day">Half day</string>
+    <string name="leave_with_approver">%1$s · with %2$s</string>
+    <string name="leave_approved_by">%1$s · approved by %2$s</string>
+    <string name="leave_rejected_reason">%1$s · %2$s</string>
+    <string name="leave_poya_note">Poya days and mercantile holidays are excluded automatically from your leave count.</string>
+    <string name="leave_no_requests">You have not applied for any leave yet.</string>
+    <string name="status_pending">Pending</string>
+    <string name="status_approved">Approved</string>
+    <string name="status_rejected">Rejected</string>
+    <string name="status_returned">Returned</string>
+    <string name="status_cancelled">Cancelled</string>
+
+    <!-- ===================== 08 · Apply leave ======================= -->
+    <string name="apply_leave_title">Apply for leave</string>
+    <string name="apply_leave_type">Leave type</string>
+    <string name="apply_from">From</string>
+    <string name="apply_to">To</string>
+    <string name="apply_full_day">Full day</string>
+    <string name="apply_half_am">Half — AM</string>
+    <string name="apply_half_pm">Half — PM</string>
+    <string name="apply_total_days">Total leave days</string>
+    <string name="apply_days_value">%1$s days</string>
+    <string name="apply_reason">Reason</string>
+    <string name="apply_reason_hint">Why do you need these days?</string>
+    <string name="apply_covering_officer">Covering officer</string>
+    <string name="apply_approver">Approver</string>
+    <string name="apply_attach">Attach document (if medical)</string>
+    <string name="apply_submit">Submit request</string>
+    <string name="apply_select_person">Select</string>
+    <string name="apply_error_no_reason">Add a reason for the request</string>
+    <string name="apply_error_dates">The end date cannot be before the start date</string>
+    <string name="apply_error_balance">You only have %1$s days of %2$s leave left</string>
+    <string name="apply_error_no_covering">Pick a covering officer</string>
+    <string name="apply_error_overlap">You already have a request covering these dates</string>
+    <string name="apply_submitted">Request sent to %1$s</string>
+
+    <!-- ==================== 13 · Notifications ====================== -->
+    <string name="notifications_title">Notifications</string>
+    <string name="notifications_mark_all_read">Mark all read</string>
+    <string name="notifications_today">Today</string>
+    <string name="notifications_this_week">This week</string>
+    <string name="notifications_earlier">Earlier</string>
+    <string name="notifications_empty">Nothing new right now.</string>
+    <string name="notifications_push_note">Push notifications are sent by the HR server via Firebase Cloud Messaging — no polling, so battery use stays low.</string>
+
+    <!-- ======================== 14 · More =========================== -->
+    <string name="more_title">More</string>
+    <string name="more_profile_meta">%1$s · EPF %2$s</string>
+    <string name="more_payslips">Payslips &amp; tax</string>
+    <string name="more_overtime">Overtime</string>
+    <string name="more_absence_reasons">Absence reasons</string>
+    <string name="more_documents">Documents &amp; SOPs</string>
+    <string name="more_approvals">Approvals</string>
+    <string name="more_language">Language — English / සිංහල</string>
+    <string name="more_help">Help &amp; HR contact</string>
+    <string name="more_logout">Log out</string>
+    <string name="more_logout_confirm_title">Log out?</string>
+    <string name="more_logout_confirm_body">You will need your employee number and password to sign back in.</string>
+    <string name="more_coming_soon">Coming in the next release.</string>
+
+    <string name="language_dialog_title">Choose language</string>
+    <string name="language_english">English</string>
+    <string name="language_sinhala">සිංහල</string>
+    <string name="language_system">Phone default</string>
+
+    <!-- ====================== Bottom navigation ===================== -->
+    <string name="nav_home">Home</string>
+    <string name="nav_attendance">Attendance</string>
+    <string name="nav_leave">Leave</string>
+    <string name="nav_team">Team</string>
+    <string name="nav_more">More</string>
+
+    <!-- ========================== Overtime ========================== -->
+    <string name="overtime_title">Overtime</string>
+    <string name="overtime_provisional">Provisional</string>
+    <string name="overtime_estimated_value">Estimated value %1$s · locked on the 25th</string>
+    <string name="overtime_approved">Approved</string>
+    <string name="overtime_pending">Pending</string>
+    <string name="overtime_rate">Weekday rate</string>
+    <string name="overtime_by_day">OT by day</string>
+    <string name="overtime_day_summary">Out %1$s · %2$s</string>
+    <string name="overtime_note">OT minutes are calculated from gate OUT time against your shift end. Supervisor approval is still required.</string>
+    <string name="overtime_empty">No overtime recorded this month.</string>
+
+</resources>

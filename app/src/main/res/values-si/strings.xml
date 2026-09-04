@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--
+      සිංහල පරිවර්තනය. Gate, OT, EPF, HR වැනි වචන ඉංග්‍රීසියෙන්ම තබා ඇත — කම්හලේ
+      සේවකයන් එදිනෙදා භාවිත කරන්නේ ඒ වචනම නිසා.
+    -->
+
+    <string name="app_name">Synergy Employee</string>
+
+    <!-- ========================== Common =========================== -->
+    <string name="action_retry">නැවත උත්සාහ කරන්න</string>
+    <string name="action_cancel">අවලංගු කරන්න</string>
+    <string name="action_ok">හරි</string>
+    <string name="action_close">වසන්න</string>
+    <string name="action_see_all">සියල්ල බලන්න</string>
+    <string name="action_submit">යවන්න</string>
+    <string name="action_back">ආපසු</string>
+    <string name="error_generic">යම් වැරැද්දක් සිදු විය. නැවත උත්සාහ කරන්න.</string>
+    <string name="error_no_network">සම්බන්ධතාවක් නැත. අවසන් වරට sync වූ දත්ත පෙන්වයි.</string>
+    <string name="cd_logo">Synergy Pharmaceuticals ලාංඡනය</string>
+    <string name="cd_notifications">දැනුම්දීම්</string>
+    <string name="cd_gate_frame">ගේට්ටුවේදී ගත් රූපය</string>
+
+    <!-- ======================= 01 · Log in ========================== -->
+    <string name="login_subtitle">සේවක පිවිසුම</string>
+    <string name="login_employee_id">සේවක අංකය / EPF අංකය</string>
+    <string name="login_employee_id_hint">උදා. SPC-1042</string>
+    <string name="login_password">මුරපදය</string>
+    <string name="login_action">පිවිසෙන්න</string>
+    <string name="login_biometric">ඇඟිලි සලකුණ / මුහුණෙන් විවෘත කරන්න</string>
+    <string name="login_biometric_title">Synergy Employee වෙත පිවිසෙන්න</string>
+    <string name="login_biometric_subtitle">ඔබගේ පැමිණීමේ වාර්තාව විවෘත කිරීමට තහවුරු කරන්න</string>
+    <string name="login_first_time">පළමු වතාවද? ගිණුම ලියාපදිංචි කරන්න</string>
+
+    <!-- ==================== ලියාපදිංචිය ==================== -->
+    <string name="register_title">ලියාපදිංචිය</string>
+    <string name="register_step">පියවර %2$d න් %1$d</string>
+    <string name="register_continue">ඉදිරියට</string>
+    <string name="register_verify">තහවුරු කරන්න</string>
+    <string name="register_finish">ගිණුම සාදන්න</string>
+    <string name="register_have_account">දැනටමත් ලියාපදිංචිද? පිවිසෙන්න</string>
+
+    <string name="register_step1_title">ඔබ කවුදැයි තහවුරු කරන්න</string>
+    <string name="register_step1_subtitle">ඔබ දැනටමත් පද්ධතියේ සිටී — HR විසින් ගේට්ටුවේදී ඔබගේ මුහුණ ලියාපදිංචි කර ඇත. මෙයින් සිදු වන්නේ app එකේ භාවිත කරන මුරපදය සැකසීම පමණි.</string>
+    <string name="register_nic">ජා.හැ. අංකය</string>
+    <string name="register_nic_helper">පැරණි (881234567V) හෝ අලුත් (198812345678)</string>
+
+    <string name="register_step2_title">ඔබගේ දුරකථනය බලන්න</string>
+    <string name="register_step2_subtitle">අංක 6ක කේතයක් %1$s වෙත එවා ඇත — එය HR වාර්තාවේ ඇති ඔබගේ අංකයයි. එය ඔබගේ අංකය නොවේ නම් HR අමතන්න.</string>
+    <string name="register_otp">අංක 6ක කේතය</string>
+    <string name="register_resend">කේතය නැවත එවන්න</string>
+    <string name="register_resent">නව කේතයක් එවමින් පවතී</string>
+    <string name="register_demo_otp">Demo නිකුතුවකි — SMS එකක් නොයවයි. කේතය %1$s යි.</string>
+
+    <string name="register_step3_title">මුරපදයක් තෝරන්න</string>
+    <string name="register_step3_subtitle">පිවිසීමට ඔබගේ සේවක අංකය සහ මෙම මුරපදය භාවිත කරන්න.</string>
+    <string name="register_password">නව මුරපදය</string>
+    <string name="register_password_confirm">නැවත ටයිප් කරන්න</string>
+    <string name="register_password_rules">අවම අකුරු 8ක්, අකුරු සහ ඉලක්කම් සමඟ. ඔබගේ සේවක අංකය හෝ ජා.හැ. අංකය භාවිත නොකරන්න — අවට සිටින අයට ඒවා දැනටමත් දන්නා නිසා.</string>
+    <string name="register_done">ගිණුම සාදන ලදී. Synergy Employee වෙත සාදරයෙන් පිළිගනිමු.</string>
+
+    <string name="register_error_nic_required">ඔබගේ ජා.හැ. අංකය ඇතුළත් කරන්න</string>
+    <string name="register_error_nic_format">එය ජා.හැ. අංකයක් වගේ නෑ</string>
+    <string name="register_error_otp_required">SMS එකේ කේතය ඇතුළත් කරන්න</string>
+    <string name="register_error_short">අවම වශයෙන් අකුරු %1$d ක් භාවිත කරන්න</string>
+    <string name="register_error_mix">අකුරු සහ ඉලක්කම් දෙකම භාවිත කරන්න</string>
+    <string name="register_error_identity">සේවක අංකය හෝ ජා.හැ. අංකය භාවිත නොකරන්න</string>
+    <string name="register_error_mismatch">මුරපද දෙක සමාන නෑ</string>
+    <string name="login_version">v%1$s · %2$s</string>
+    <string name="login_error_id_required">ඔබගේ සේවක හෝ EPF අංකය ඇතුළත් කරන්න</string>
+    <string name="login_error_password_required">මුරපදය ඇතුළත් කරන්න</string>
+    <string name="login_error_invalid">සේවක අංකය හෝ මුරපදය වැරදියි</string>
+    <string name="login_biometric_unavailable">මෙම දුරකථනයේ ඇඟිලි සලකුණක් හෝ මුහුණක් ලියාපදිංචි කර නැත</string>
+    <string name="login_biometric_needs_password">පළමුව මුරපදයෙන් පිවිසෙන්න — ඉන්පසු biometric විවෘත කිරීම ක්‍රියාත්මක වේ</string>
+
+    <!-- ======================== 02 · Home =========================== -->
+    <string name="home_greeting_morning">සුබ උදෑසනක්</string>
+    <string name="home_greeting_afternoon">සුබ දහවලක්</string>
+    <string name="home_greeting_evening">සුබ සැන්දෑවක්</string>
+    <string name="home_today">අද · %1$s</string>
+    <string name="home_face_verified">මුහුණ තහවුරු විය</string>
+    <string name="home_face_pending">තවම gate event එකක් නැත</string>
+    <string name="home_gate_in">Gate IN</string>
+    <string name="home_gate_out">Gate OUT</string>
+    <string name="home_inside">ඇතුළත</string>
+    <string name="home_view_gate_log">අද දවසේ gate log එක බලන්න</string>
+    <string name="home_qa_apply_leave">නිවාඩු ඉල්ලන්න</string>
+    <string name="home_qa_absence_reason">නොපැමිණීමේ හේතුව</string>
+    <string name="home_qa_my_ot">මගේ OT</string>
+    <string name="home_qa_payslip">වැටුප් පත්‍රය</string>
+    <string name="home_missing_title">%1$s — gate වාර්තාවක් නැත</string>
+    <string name="home_missing_sub">%1$s ට පෙර හේතුවක් යවන්න</string>
+    <string name="home_announcements">නිවේදන</string>
+    <string name="home_no_announcements">දැනට නිවේදන නැත</string>
+    <string name="announcement_action_needed">ක්‍රියාවක් අවශ්‍යයි</string>
+
+    <!-- ====================== 03 · Gate log ========================= -->
+    <string name="gate_log_title">Gate log — %1$s</string>
+    <string name="gate_chip_inside">වැඩ කළේ %1$s</string>
+    <string name="gate_chip_ot">OT %1$s</string>
+    <string name="gate_direction_in">IN</string>
+    <string name="gate_direction_out">OUT</string>
+    <string name="gate_event_meta">%1$s · ගැළපීම %2$s</string>
+    <string name="gate_match_borderline">මායිම් ගැළපීමක් — පරීක්ෂා කර බලන්න</string>
+    <string name="gate_shift">වාරය</string>
+    <string name="gate_total_inside">මුළු ඇතුළත කාලය</string>
+    <string name="gate_break_deducted">අඩු කළ විවේකය</string>
+    <string name="gate_approved_ot">අනුමත OT</string>
+    <string name="gate_late_by">ප්‍රමාද වූයේ</string>
+    <string name="gate_missing_checkout">Gate OUT එකක් වාර්තා වී නැත. HR විසින් ඔබගේ වාරය අවසානයේ දිනය වසා ඇත.</string>
+    <string name="gate_adjusted_by">මෙම දිනය %1$s විසින් වෙනස් කරන ලදී: %2$s</string>
+    <string name="gate_report_incorrect">වැරදි වාර්තාවක් දන්වන්න</string>
+    <string name="gate_readonly_note">මෙම වාර්තා පැමිණෙන්නේ ගේට්ටුවේ මුහුණු හඳුනාගැනීමේ පද්ධතියෙනි. ඒවා app එකෙන් වෙනස් කළ නොහැක. නිවැරදි කිරීම් HR වෙත සමාලෝචනයට යයි.</string>
+    <string name="gate_no_events">මෙදින gate event කිසිවක් වාර්තා වී නැත.</string>
+    <string name="gate_correction_title">වැරදි වාර්තාවක් දන්වන්න</string>
+    <string name="gate_correction_hint">මෙදින වාර්තාවේ වැරැද්ද කුමක්දැයි ලියන්න</string>
+    <string name="gate_correction_sent">සමාලෝචනය සඳහා HR වෙත යවන ලදී</string>
+
+    <!-- ====================== 04 · Attendance ======================= -->
+    <string name="attendance_title">පැමිණීම</string>
+    <string name="attendance_worked">වැඩ කළ</string>
+    <string name="attendance_ot_hours">OT පැය</string>
+    <string name="attendance_leave">නිවාඩු</string>
+    <string name="attendance_absent">නොපැමිණි</string>
+    <string name="attendance_daily_record">දෛනික වාර්තාව</string>
+    <string name="attendance_prev_month">පෙර මාසය</string>
+    <string name="attendance_next_month">ඊළඟ මාසය</string>
+    <string name="day_state_worked">වැඩ කළා</string>
+    <string name="day_state_leave">නිවාඩු</string>
+    <string name="day_state_absent">නොපැමිණියා</string>
+    <string name="day_state_holiday">නිවාඩු දිනය</string>
+    <string name="day_state_off">වැඩ නැත</string>
+    <string name="attendance_reason_pending">Gate වාර්තාවක් නැත — හේතුව බලාපොරොත්තුවෙන්</string>
+    <string name="attendance_empty">මෙම මාසයට තවම කිසිවක් වාර්තා වී නැත.</string>
+    <string name="weekday_initials">ස,අ,බ,බ්‍ර,සි,සෙ,ඉ</string>
+
+    <!-- =================== 05 · Absence reason ====================== -->
+    <string name="absence_title">නොපැමිණීමේ හේතුව යවන්න</string>
+    <string name="absence_alert_title">%1$s දින gate වාර්තාවක් නැත</string>
+    <string name="absence_alert_sub">ස්වයංක්‍රීයව නොපැමිණි ලෙස සලකුණු කර ඇත. දින %1$d ක් ඇතුළත යවන්න.</string>
+    <string name="absence_reason_type">හේතුවේ වර්ගය</string>
+    <string name="reason_medical">වෛද්‍ය</string>
+    <string name="reason_personal">පෞද්ගලික</string>
+    <string name="reason_emergency">හදිසි</string>
+    <string name="reason_official">රාජකාරි</string>
+    <string name="absence_date">නොපැමිණි දිනය</string>
+    <string name="absence_explanation">පැහැදිලි කිරීම</string>
+    <string name="absence_explanation_hint">සිදු වූයේ කුමක්ද? කෙටියෙන් ලියන්න.</string>
+    <string name="absence_supporting_doc">සහාය ලේඛනය</string>
+    <string name="absence_add_file">ගොනුවක් එක් කරන්න</string>
+    <string name="absence_add_another_file">තවත් ගොනුවක් එක් කරන්න</string>
+    <string name="absence_add_file_hint">කැමරාව, ගැලරිය හෝ PDF · උපරිම 5 MB</string>
+    <string name="absence_send">HR වෙත යවන්න</string>
+    <string name="absence_source_camera">ඡායාරූපයක් ගන්න</string>
+    <string name="absence_source_gallery">ගැලරියෙන් තෝරන්න</string>
+    <string name="absence_source_file">PDF එකක් තෝරන්න</string>
+    <string name="absence_remove_file">ඉවත් කරන්න</string>
+    <string name="absence_file_meta">%1$s · උඩුගත කළා</string>
+    <string name="absence_error_no_reason">හේතුවේ වර්ගය තෝරන්න</string>
+    <string name="absence_error_no_explanation">කෙටි පැහැදිලි කිරීමක් එක් කරන්න</string>
+    <string name="absence_error_medical_needs_doc">වෛද්‍ය හේතුවකට සහතිකයක් අමුණන්න</string>
+    <string name="absence_error_file_too_large">එම ගොනුව 5 MB ට වැඩියි. ඡායාරූපයක් උත්සාහ කරන්න.</string>
+    <string name="absence_submitted">HR වෙත යවන ලදී. සමාලෝචනය කළ පසු දැනුම්දීමක් ලැබේ.</string>
+    <string name="absence_no_pending">පැහැදිලි කිරීමට කිසිවක් නැත — සෑම වැඩ දිනයකටම gate වාර්තාවක් තිබේ.</string>
+
+    <!-- ======================== 07 · Leave ========================== -->
+    <string name="leave_title">නිවාඩු</string>
+    <string name="leave_balance_year">ශේෂය · %1$s</string>
+    <string name="leave_days_left">දින %1$s ක් ඉතිරියි</string>
+    <string name="leave_type_annual">වාර්ෂික</string>
+    <string name="leave_type_casual">අනියම්</string>
+    <string name="leave_type_medical">වෛද්‍ය</string>
+    <string name="leave_type_nopay">වැටුප් රහිත</string>
+    <string name="leave_type_maternity">ප්‍රසූත</string>
+    <string name="leave_type_short">කෙටි නිවාඩු</string>
+    <string name="leave_type_other">වෙනත්</string>
+    <string name="leave_used_of">%2$s න් %1$s</string>
+    <string name="leave_my_requests">මගේ ඉල්ලීම්</string>
+    <string name="leave_request_days">දින %1$s</string>
+    <string name="leave_request_days_plural">දින %1$s</string>
+    <string name="leave_half_day">අඩ දිනයක්</string>
+    <string name="leave_with_approver">%1$s · %2$s සමඟ</string>
+    <string name="leave_approved_by">%1$s · %2$s අනුමත කළා</string>
+    <string name="leave_poya_note">පොහොය දින සහ වෙළඳ නිවාඩු දින ඔබගේ නිවාඩු ගණනින් ස්වයංක්‍රීයව බැහැර වේ.</string>
+    <string name="leave_no_requests">ඔබ තවම නිවාඩු ඉල්ලා නැත.</string>
+    <string name="status_pending">බලාපොරොත්තුවෙන්</string>
+    <string name="status_approved">අනුමතයි</string>
+    <string name="status_rejected">ප්‍රතික්ෂේපයි</string>
+    <string name="status_returned">ආපසු එවා ඇත</string>
+    <string name="status_cancelled">අවලංගුයි</string>
+
+    <!-- ===================== 08 · Apply leave ======================= -->
+    <string name="apply_leave_title">නිවාඩු ඉල්ලන්න</string>
+    <string name="apply_leave_type">නිවාඩු වර්ගය</string>
+    <string name="apply_from">සිට</string>
+    <string name="apply_to">දක්වා</string>
+    <string name="apply_full_day">පූර්ණ දිනය</string>
+    <string name="apply_half_am">අඩක් — පෙ.ව.</string>
+    <string name="apply_half_pm">අඩක් — ප.ව.</string>
+    <string name="apply_total_days">මුළු නිවාඩු දින</string>
+    <string name="apply_days_value">දින %1$s</string>
+    <string name="apply_reason">හේතුව</string>
+    <string name="apply_reason_hint">මෙම දින අවශ්‍ය වන්නේ ඇයි?</string>
+    <string name="apply_covering_officer">ආවරණ නිලධාරියා</string>
+    <string name="apply_approver">අනුමත කරන්නා</string>
+    <string name="apply_attach">ලේඛනයක් අමුණන්න (වෛද්‍ය නම්)</string>
+    <string name="apply_submit">ඉල්ලීම යවන්න</string>
+    <string name="apply_select_person">තෝරන්න</string>
+    <string name="apply_error_no_reason">ඉල්ලීමට හේතුවක් එක් කරන්න</string>
+    <string name="apply_error_dates">අවසන් දිනය ආරම්භක දිනයට පෙර විය නොහැක</string>
+    <string name="apply_error_balance">ඔබට ඉතිරිව ඇත්තේ %2$s නිවාඩු දින %1$s ක් පමණි</string>
+    <string name="apply_error_no_covering">ආවරණ නිලධාරියෙකු තෝරන්න</string>
+    <string name="apply_error_overlap">මෙම දිනවලට දැනටමත් ඉල්ලීමක් තිබේ</string>
+    <string name="apply_submitted">ඉල්ලීම %1$s වෙත යවන ලදී</string>
+
+    <!-- ==================== 13 · Notifications ====================== -->
+    <string name="notifications_title">දැනුම්දීම්</string>
+    <string name="notifications_mark_all_read">සියල්ල කියවූ ලෙස</string>
+    <string name="notifications_today">අද</string>
+    <string name="notifications_this_week">මේ සතියේ</string>
+    <string name="notifications_earlier">කලින්</string>
+    <string name="notifications_empty">දැනට අලුත් දෙයක් නැත.</string>
+    <string name="notifications_push_note">Push දැනුම්දීම් HR සේවාදායකයෙන් Firebase Cloud Messaging හරහා එවයි — polling නැති නිසා බැටරි භාවිතය අඩුයි.</string>
+
+    <!-- ======================== 14 · More =========================== -->
+    <string name="more_title">තවත්</string>
+    <string name="more_profile_meta">%1$s · EPF %2$s</string>
+    <string name="more_payslips">වැටුප් පත්‍ර සහ බදු</string>
+    <string name="more_overtime">අතිකාල</string>
+    <string name="more_absence_reasons">නොපැමිණීමේ හේතු</string>
+    <string name="more_documents">ලේඛන සහ SOP</string>
+    <string name="more_approvals">අනුමැතීන්</string>
+    <string name="more_language">භාෂාව — English / සිංහල</string>
+    <string name="more_help">උදව් සහ HR සම්බන්ධතා</string>
+    <string name="more_logout">ඉවත් වන්න</string>
+    <string name="more_logout_confirm_title">ඉවත් වන්නද?</string>
+    <string name="more_logout_confirm_body">නැවත පිවිසීමට ඔබගේ සේවක අංකය සහ මුරපදය අවශ්‍ය වේ.</string>
+    <string name="more_coming_soon">මීළඟ නිකුතුවේදී.</string>
+
+    <string name="language_dialog_title">භාෂාව තෝරන්න</string>
+    <string name="language_english">English</string>
+    <string name="language_sinhala">සිංහල</string>
+    <string name="language_system">දුරකථනයේ පෙරනිමිය</string>
+
+    <!-- ====================== Bottom navigation ===================== -->
+    <string name="nav_home">මුල් පිටුව</string>
+    <string name="nav_attendance">පැමිණීම</string>
+    <string name="nav_leave">නිවාඩු</string>
+    <string name="nav_team">කණ්ඩායම</string>
+    <string name="nav_more">තවත්</string>
+
+    <!-- ========================== Overtime ========================== -->
+    <string name="overtime_title">අතිකාල</string>
+    <string name="overtime_provisional">තාවකාලික</string>
+    <string name="overtime_estimated_value">ඇස්තමේන්තුගත වටිනාකම %1$s · 25 වනදා අගුළු වැටේ</string>
+    <string name="overtime_approved">අනුමතයි</string>
+    <string name="overtime_pending">බලාපොරොත්තුවෙන්</string>
+    <string name="overtime_rate">සතියේ දින අනුපාතය</string>
+    <string name="overtime_by_day">දින අනුව OT</string>
+    <string name="overtime_day_summary">පිටව ගියේ %1$s · %2$s</string>
+    <string name="overtime_note">OT මිනිත්තු ගණන ගණනය වන්නේ gate OUT වේලාව ඔබගේ වාරය අවසන් වේලාවට සාපේක්ෂවයි. අධීක්ෂක අනුමැතිය තවමත් අවශ්‍යයි.</string>
+    <string name="overtime_empty">මෙම මාසයේ අතිකාල වාර්තා වී නැත.</string>
+
+</resources>

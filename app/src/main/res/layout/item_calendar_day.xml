@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- One cell of the month grid. Colour comes from DayState, never from here. -->
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cell"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:layout_margin="2dp"
+    android:background="@drawable/bg_rect_r8"
+    android:backgroundTint="@color/calendar_off"
+    android:gravity="center"
+    android:textColor="@color/ink_secondary"
+    android:textSize="12sp"
+    tools:text="12" />

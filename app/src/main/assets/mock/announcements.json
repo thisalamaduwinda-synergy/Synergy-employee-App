@@ -1,0 +1,42 @@
+[
+  {
+    "id": "ann-001",
+    "title": "Annual Sales Conference 2026",
+    "body": "Registration closes in two weeks. Confirm attendance and dietary preference through your line manager.",
+    "category": "Events",
+    "published_at": "-2h",
+    "pinned": true,
+    "action_needed": true,
+    "read": false
+  },
+  {
+    "id": "ann-002",
+    "title": "GMP refresher training",
+    "body": "Mandatory for all production and QA staff. Two batches: 9.00 a.m. and 2.00 p.m.",
+    "category": "Quality Assurance",
+    "published_at": "-1d",
+    "pinned": false,
+    "action_needed": true,
+    "read": false
+  },
+  {
+    "id": "ann-003",
+    "title": "New price list effective next month",
+    "body": "The revised price list has been circulated to all regional teams. Old stock is billed at the previous rate until the end of the month.",
+    "category": "Sales & Marketing",
+    "published_at": "-3d",
+    "pinned": false,
+    "action_needed": false,
+    "read": true
+  },
+  {
+    "id": "ann-004",
+    "title": "Main Entrance - OUT camera maintenance",
+    "body": "The exit camera at the main gate is offline for servicing this weekend. Scan out at the OSD block entrance so your attendance is recorded.",
+    "category": "HR",
+    "published_at": "-5d",
+    "pinned": false,
+    "action_needed": false,
+    "read": true
+  }
+]

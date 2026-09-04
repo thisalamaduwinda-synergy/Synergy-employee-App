@@ -1,0 +1,50 @@
+[
+  {
+    "employee_code": "1001",
+    "full_name": "Ruwani Silva",
+    "designation": "QA Manager",
+    "department": "Quality Assurance",
+    "phone": "+94 77 111 2233",
+    "can_approve": true
+  },
+  {
+    "employee_code": "1010",
+    "full_name": "Nuwan Perera",
+    "designation": "Head of Sales",
+    "department": "Sales & Marketing",
+    "phone": "+94 77 456 1122",
+    "can_approve": true
+  },
+  {
+    "employee_code": "1022",
+    "full_name": "Kasun Jayasinghe",
+    "designation": "Medical Rep",
+    "department": "Sales & Marketing",
+    "phone": "+94 76 889 4410",
+    "can_approve": false
+  },
+  {
+    "employee_code": "1214",
+    "full_name": "Sandarekha Gunasiri",
+    "designation": "Junior Executive",
+    "department": "Quality Assurance",
+    "phone": "+94 71 990 3321",
+    "can_approve": false
+  },
+  {
+    "employee_code": "1215",
+    "full_name": "Anuththara Rajakaruna",
+    "designation": "Junior Executive",
+    "department": "Quality Assurance",
+    "phone": "+94 70 344 5561",
+    "can_approve": false
+  },
+  {
+    "employee_code": "1058",
+    "full_name": "Ahamed Fazal",
+    "designation": "Stores Supervisor",
+    "department": "Warehouse",
+    "phone": "+94 75 220 7788",
+    "can_approve": true
+  }
+]

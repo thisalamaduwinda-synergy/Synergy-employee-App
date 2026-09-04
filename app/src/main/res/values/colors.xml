@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--
+      Synergy blue ramp. The interface is blue-only on purpose: the orange in the
+      logo stays a *logo* colour so the mark keeps its impact instead of blending
+      into the UI. Green / red / slate are used strictly for meaning.
+    -->
+    <color name="synergy_blue_900">#FF06375A</color>
+    <color name="synergy_blue_800">#FF0A5B90</color>
+    <color name="synergy_blue_700">#FF0E76BC</color> <!-- primary -->
+    <color name="synergy_blue_600">#FF1180C4</color>
+    <color name="synergy_blue_500">#FF3AA0DC</color>
+    <color name="synergy_blue_100">#FFCDE5F6</color>
+    <color name="synergy_blue_50">#FFEAF4FC</color>
+
+    <!-- Logo artwork only. Never use these for buttons, chips or state. -->
+    <color name="logo_orange">#FFF5A02B</color>
+
+    <!-- Day / request state -->
+    <color name="state_present">#FF159A63</color>
+    <color name="state_present_bg">#FFE2F6EC</color>
+    <color name="state_absent">#FFDC4A46</color>
+    <color name="state_absent_bg">#FFFDEAE9</color>
+    <color name="state_leave">#FF0A5B90</color>
+    <color name="state_leave_bg">#FFCDE5F6</color>
+
+    <!-- Neutral / pending. Carries what orange used to. -->
+    <color name="slate">#FF54687A</color>
+    <color name="slate_deep">#FF3E5A6E</color>
+    <color name="slate_bg">#FFEDF1F5</color>
+
+    <!-- Text & surfaces -->
+    <color name="ink">#FF101820</color>
+    <color name="ink_secondary">#FF33454F</color>
+    <color name="muted">#FF6E828F</color>
+    <color name="divider">#FFE1E9EF</color>
+    <color name="surface_bg">#FFEFF4F8</color>
+    <color name="surface_card">#FFFFFFFF</color>
+    <color name="surface_sunken">#FFF4F8FB</color>
+    <color name="chip_grey_bg">#FFEEF2F5</color>
+    <color name="calendar_off">#FFF2F6F9</color>
+    <color name="calendar_off_text">#FFBDCCD6</color>
+
+    <color name="white">#FFFFFFFF</color>
+    <color name="scrim_white_18">#2EFFFFFF</color>
+    <color name="scrim_white_22">#38FFFFFF</color>
+
+    <!-- Adaptive launcher icon plate. The mark contains black and orange, so it
+         always sits on white — never knocked out to a single colour. -->
+    <color name="ic_launcher_background">#FFFFFFFF</color>
+
+</resources>

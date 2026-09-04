@@ -1,0 +1,14 @@
+[
+  {
+    "employee_code": "1213",
+    "nic": "199512345678",
+    "phone": "+94 71 234 5678",
+    "already_registered": false
+  },
+  {
+    "employee_code": "1001",
+    "nic": "198812345V",
+    "phone": "+94 77 111 2233",
+    "already_registered": true
+  }
+]

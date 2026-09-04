@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:minHeight="@dimen/tap_target"
+    android:orientation="horizontal"
+    android:paddingVertical="@dimen/space_10">
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="@dimen/avatar_sm"
+        android:layout_height="@dimen/avatar_sm"
+        android:background="@drawable/bg_rect_r10"
+        android:backgroundTint="@color/slate_bg"
+        android:contentDescription="@null"
+        android:padding="@dimen/space_6"
+        android:src="@drawable/ic_clock" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/space_10"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/text_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/ink"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            tools:text="Annual · 2 days" />
+
+        <TextView
+            android:id="@+id/text_subtitle"
+            style="@style/TextAppearance.Synergy.Caption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_2"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textSize="11sp"
+            tools:text="25 – 26 Aug · with N. Perera" />
+    </LinearLayout>
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip_status"
+        style="@style/Widget.Synergy.Chip.Status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Pending" />
+
+</LinearLayout>

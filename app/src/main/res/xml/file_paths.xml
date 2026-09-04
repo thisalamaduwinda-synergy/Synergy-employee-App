@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <!-- Certificate photos taken in-app, before they are compressed and uploaded. -->
+    <cache-path
+        name="captures"
+        path="captures/" />
+    <files-path
+        name="documents"
+        path="documents/" />
+</paths>

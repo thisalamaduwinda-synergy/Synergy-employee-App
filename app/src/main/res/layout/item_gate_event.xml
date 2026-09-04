@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  One face-recognition hit on the day's timeline.
+
+  The captured frame and the match score sit right next to the time on purpose:
+  they turn "the machine says you were late" into something the employee can
+  check, which is the difference between the record being trusted and disputed.
+-->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingVertical="@dimen/space_8">
+
+    <View
+        android:id="@+id/line_top"
+        android:layout_width="2dp"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_timeline_line"
+        app:layout_constraintBottom_toTopOf="@id/node"
+        app:layout_constraintEnd_toEndOf="@id/node"
+        app:layout_constraintStart_toStartOf="@id/node"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/node"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:layout_marginStart="@dimen/space_4"
+        android:background="@drawable/bg_timeline_node"
+        app:layout_constraintBottom_toBottomOf="@id/thumb"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/thumb" />
+
+    <View
+        android:id="@+id/line_bottom"
+        android:layout_width="2dp"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_timeline_line"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/node"
+        app:layout_constraintStart_toStartOf="@id/node"
+        app:layout_constraintTop_toBottomOf="@id/node" />
+
+    <ImageView
+        android:id="@+id/thumb"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="@dimen/space_16"
+        android:background="@drawable/bg_rect_r10"
+        android:clipToOutline="true"
+        android:contentDescription="@string/cd_gate_frame"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_face_frame"
+        app:layout_constraintStart_toEndOf="@id/node"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_time"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_10"
+        android:textColor="@color/ink"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/chip_direction"
+        app:layout_constraintStart_toEndOf="@id/thumb"
+        app:layout_constraintTop_toTopOf="@id/thumb"
+        tools:text="08:12:04 · IN" />
+
+    <TextView
+        android:id="@+id/text_meta"
+        style="@style/TextAppearance.Synergy.Caption"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_2"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toStartOf="@id/chip_direction"
+        app:layout_constraintStart_toStartOf="@id/text_time"
+        app:layout_constraintTop_toBottomOf="@id/text_time"
+        tools:text="Main Gate · Camera CAM-01 · match 98.4%" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip_direction"
+        style="@style/Widget.Synergy.Chip.Status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/thumb"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/thumb"
+        tools:text="IN" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

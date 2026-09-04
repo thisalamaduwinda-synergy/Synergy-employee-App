@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Theme.Synergy" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/synergy_blue_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/synergy_blue_50</item>
+        <item name="colorOnPrimaryContainer">@color/synergy_blue_900</item>
+
+        <item name="colorSecondary">@color/slate</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorSecondaryContainer">@color/slate_bg</item>
+        <item name="colorOnSecondaryContainer">@color/slate_deep</item>
+
+        <item name="colorSurface">@color/surface_card</item>
+        <item name="colorOnSurface">@color/ink</item>
+        <!--
+          Material 3 tints any elevated surface towards the primary colour, so
+          every raised card came out pale blue instead of white — visible
+          immediately on the login screen. This design wants flat white surfaces
+          with a real shadow and nothing else, so the overlay is off app-wide.
+        -->
+        <item name="elevationOverlayEnabled">false</item>
+
+        <!--
+          Dialogs, menus and sheets read colorSurfaceContainer*, not colorSurface.
+          Left at the Material 3 defaults those come from a generated tonal
+          palette and render pale lilac — visibly off-brand next to the blue.
+        -->
+        <item name="colorSurfaceContainerLowest">@color/white</item>
+        <item name="colorSurfaceContainerLow">@color/surface_card</item>
+        <item name="colorSurfaceContainer">@color/surface_card</item>
+        <item name="colorSurfaceContainerHigh">@color/surface_card</item>
+        <item name="colorSurfaceContainerHighest">@color/surface_bg</item>
+        <item name="colorSurfaceVariant">@color/synergy_blue_50</item>
+        <item name="colorOnSurfaceVariant">@color/muted</item>
+        <item name="colorOutline">@color/divider</item>
+        <item name="colorOutlineVariant">@color/divider</item>
+        <item name="android:colorBackground">@color/surface_bg</item>
+        <item name="colorOnBackground">@color/ink</item>
+
+        <item name="colorError">@color/state_absent</item>
+        <item name="colorOnError">@color/white</item>
+        <item name="colorErrorContainer">@color/state_absent_bg</item>
+
+        <item name="colorControlNormal">@color/ink_secondary</item>
+
+        <item name="android:statusBarColor">@color/synergy_blue_800</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:navigationBarColor">@color/surface_card</item>
+
+        <item name="android:textColorPrimary">@color/ink</item>
+        <item name="android:textColorSecondary">@color/muted</item>
+
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.Synergy.Dialog</item>
+        <item name="bottomSheetDialogTheme">@style/ThemeOverlay.Synergy.BottomSheet</item>
+    </style>
+
+    <!--
+      Shown while the process starts, then MainActivity swaps back to
+      Theme.Synergy in onCreate(). Keeps the cold start from flashing white.
+    -->
+    <style name="Theme.Synergy.Splash">
+        <item name="android:windowBackground">@drawable/bg_splash</item>
+        <item name="android:statusBarColor">@color/synergy_blue_800</item>
+    </style>
+
+    <style name="ThemeOverlay.Synergy.Dialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearance.Synergy.Dialog</item>
+        <item name="buttonBarPositiveButtonStyle">@style/Widget.Synergy.Button.Dialog</item>
+        <item name="buttonBarNegativeButtonStyle">@style/Widget.Synergy.Button.Dialog</item>
+    </style>
+
+    <style name="ThemeOverlay.Synergy.BottomSheet" parent="ThemeOverlay.Material3.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/Widget.Synergy.BottomSheet</item>
+    </style>
+
+    <style name="Widget.Synergy.BottomSheet" parent="Widget.Material3.BottomSheet.Modal">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearance.Synergy.BottomSheet</item>
+        <item name="backgroundTint">@color/surface_card</item>
+    </style>
+
+    <style name="ShapeAppearance.Synergy.Dialog" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/radius_xl</item>
+    </style>
+
+    <style name="ShapeAppearance.Synergy.BottomSheet" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">@dimen/radius_xl</item>
+        <item name="cornerSizeTopRight">@dimen/radius_xl</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+    </style>
+
+</resources>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:gravity="center_vertical"
+    android:minHeight="@dimen/tap_target"
+    android:orientation="horizontal"
+    android:paddingVertical="@dimen/space_10">
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="@dimen/avatar_sm"
+        android:layout_height="@dimen/avatar_sm"
+        android:background="@drawable/bg_rect_r10"
+        android:contentDescription="@null"
+        android:padding="@dimen/space_6"
+        tools:src="@drawable/ic_warning" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/space_10"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/text_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/ink"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            tools:text="No gate record for 11 Aug" />
+
+        <TextView
+            android:id="@+id/text_body"
+            style="@style/TextAppearance.Synergy.Caption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_2"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textSize="11.5sp"
+            tools:text="Submit a reason within 7 days" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/dot_unread"
+        android:layout_width="8dp"
+        android:layout_height="8dp"
+        android:background="@drawable/bg_pill"
+        android:backgroundTint="@color/synergy_blue_700" />
+
+</LinearLayout>

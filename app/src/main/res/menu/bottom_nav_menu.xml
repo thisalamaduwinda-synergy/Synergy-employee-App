@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Four tabs, not five. The design has a "Team" tab for the staff directory, but
+  that screen ships in v1.1 — a tab that opens "coming soon" is worse than no
+  tab. Adding it later is one <item> here plus one destination in nav_graph.xml.
+
+  Each id matches a destination id in nav_graph.xml, which is what lets
+  NavigationUI wire the tabs up with no click listeners.
+-->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@drawable/ic_home"
+        android:title="@string/nav_home" />
+
+    <item
+        android:id="@+id/attendanceFragment"
+        android:icon="@drawable/ic_clock"
+        android:title="@string/nav_attendance" />
+
+    <item
+        android:id="@+id/leaveFragment"
+        android:icon="@drawable/ic_calendar"
+        android:title="@string/nav_leave" />
+
+    <item
+        android:id="@+id/moreFragment"
+        android:icon="@drawable/ic_grid"
+        android:title="@string/nav_more" />
+
+</menu>

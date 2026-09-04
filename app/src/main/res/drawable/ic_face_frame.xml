@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Stand-in for the frame the gate camera captured. Replace with the real image
+  once GateEvent.frameUrl is populated — see GateLogAdapter#bindFrame.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="40dp"
+    android:height="40dp"
+    android:viewportWidth="40"
+    android:viewportHeight="40">
+    <path
+        android:pathData="M0,0h40v40h-40z"
+        android:fillColor="#FFD8E6F0" />
+    <path
+        android:pathData="M20,10 m-7,0 a7,7 0 1,0 14,0 a7,7 0 1,0 -14,0"
+        android:fillColor="#FF8FAABE" />
+    <path
+        android:pathData="M8,40 C8,30 13,26 20,26 C27,26 32,30 32,40 Z"
+        android:fillColor="#FF8FAABE" />
+</vector>

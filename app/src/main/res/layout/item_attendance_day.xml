@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:gravity="center_vertical"
+    android:minHeight="@dimen/tap_target"
+    android:orientation="horizontal"
+    android:paddingVertical="@dimen/space_10">
+
+    <TextView
+        android:id="@+id/text_day"
+        android:layout_width="@dimen/avatar_sm"
+        android:layout_height="@dimen/avatar_sm"
+        android:background="@drawable/bg_rect_r10"
+        android:backgroundTint="@color/state_present_bg"
+        android:gravity="center"
+        android:textColor="@color/state_present"
+        android:textSize="11.5sp"
+        android:textStyle="bold"
+        tools:text="12" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/space_10"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/text_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/ink"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            tools:text="Tue, 12 August" />
+
+        <TextView
+            android:id="@+id/text_subtitle"
+            style="@style/TextAppearance.Synergy.Caption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_2"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textSize="11sp"
+            tools:text="08:12 – 18:12 · 8h 42m · OT 1h 12m" />
+    </LinearLayout>
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip_state"
+        style="@style/Widget.Synergy.Chip.Status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Worked" />
+
+</LinearLayout>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="space_2">2dp</dimen>
+    <dimen name="space_4">4dp</dimen>
+    <dimen name="space_6">6dp</dimen>
+    <dimen name="space_8">8dp</dimen>
+    <dimen name="space_10">10dp</dimen>
+    <dimen name="space_12">12dp</dimen>
+    <dimen name="space_14">14dp</dimen>
+    <dimen name="space_16">16dp</dimen>
+    <dimen name="space_20">20dp</dimen>
+    <dimen name="space_24">24dp</dimen>
+    <dimen name="space_32">32dp</dimen>
+
+    <dimen name="radius_sm">10dp</dimen>
+    <dimen name="radius_md">12dp</dimen>
+    <dimen name="radius_lg">14dp</dimen>
+    <dimen name="radius_xl">18dp</dimen>
+    <dimen name="radius_pill">24dp</dimen>
+
+    <!-- Plant staff often wear gloves. Never go below this. -->
+    <dimen name="tap_target">48dp</dimen>
+
+    <dimen name="icon_sm">16dp</dimen>
+    <dimen name="icon_md">20dp</dimen>
+    <dimen name="icon_lg">24dp</dimen>
+
+    <dimen name="avatar_sm">32dp</dimen>
+    <dimen name="avatar_md">38dp</dimen>
+    <dimen name="avatar_lg">60dp</dimen>
+
+    <dimen name="button_height">48dp</dimen>
+    <dimen name="button_height_sm">36dp</dimen>
+    <dimen name="card_elevation">1dp</dimen>
+    <dimen name="card_elevation_lift">6dp</dimen>
+
+    <!-- Blue header sheet that the first card overlaps by -->
+    <dimen name="header_overlap">34dp</dimen>
+
+</resources>

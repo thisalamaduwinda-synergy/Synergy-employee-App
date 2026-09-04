@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Shared blue header: back arrow, title, one optional action.
+
+  The gradient paints all the way behind the status bar; ViewUtils
+  .applySystemBarPadding pushes only the content down, which is why there is no
+  hard-coded top padding here.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/header_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_header_gradient"
+    android:gravity="center_vertical"
+    android:minHeight="56dp"
+    android:orientation="horizontal"
+    android:paddingHorizontal="@dimen/space_8"
+    android:paddingBottom="@dimen/space_12">
+
+    <ImageButton
+        android:id="@+id/button_back"
+        android:layout_width="@dimen/tap_target"
+        android:layout_height="@dimen/tap_target"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/action_back"
+        android:padding="@dimen/space_12"
+        android:src="@drawable/ic_arrow_left"
+        app:tint="@color/white" />
+
+    <TextView
+        android:id="@+id/text_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_2"
+        android:layout_weight="1"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        tools:text="Gate log — 12 Aug" />
+
+    <TextView
+        android:id="@+id/text_action"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:minHeight="@dimen/tap_target"
+        android:gravity="center"
+        android:paddingHorizontal="@dimen/space_12"
+        android:textColor="@color/white"
+        android:textSize="12.5sp"
+        android:visibility="gone"
+        tools:text="Mark all read"
+        tools:visibility="visible" />
+
+    <ImageButton
+        android:id="@+id/button_action"
+        android:layout_width="@dimen/tap_target"
+        android:layout_height="@dimen/tap_target"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@null"
+        android:padding="@dimen/space_12"
+        android:src="@drawable/ic_dots"
+        android:visibility="gone"
+        app:tint="@color/white" />
+
+</LinearLayout>

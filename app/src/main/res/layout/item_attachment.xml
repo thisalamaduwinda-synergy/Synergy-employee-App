@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingVertical="@dimen/space_8">
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="@dimen/avatar_sm"
+        android:layout_height="@dimen/avatar_sm"
+        android:background="@drawable/bg_rect_r10"
+        android:backgroundTint="@color/state_absent_bg"
+        android:contentDescription="@null"
+        android:padding="@dimen/space_6"
+        android:src="@drawable/ic_file"
+        app:tint="@color/state_absent" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/space_10"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/text_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="middle"
+            android:maxLines="1"
+            android:textColor="@color/ink"
+            android:textSize="12.5sp"
+            android:textStyle="bold"
+            tools:text="medical_cert_11aug.jpg" />
+
+        <TextView
+            android:id="@+id/text_size"
+            style="@style/TextAppearance.Synergy.Caption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_2"
+            android:textSize="11sp"
+            tools:text="412 KB · uploaded" />
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/button_remove"
+        android:layout_width="@dimen/tap_target"
+        android:layout_height="@dimen/tap_target"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/absence_remove_file"
+        android:padding="@dimen/space_14"
+        android:rotation="45"
+        android:src="@drawable/ic_plus"
+        app:tint="@color/muted" />
+
+</LinearLayout>

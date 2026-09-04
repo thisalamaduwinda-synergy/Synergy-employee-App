@@ -1,0 +1,30 @@
+[
+  {
+    "employee_code": "1213",
+    "full_name": "Thisala Maduwinda",
+    "designation": "Junior Executive",
+    "department": "Quality Assurance",
+    "branch": "Ratmalana plant",
+    "status": "active",
+    "role": "employee",
+    "shift_start": "08:00",
+    "shift_end": "17:00",
+    "phone": "+94 71 234 5678",
+    "email": "thisala.maduwinda@synergypharma.lk",
+    "is_vip": false
+  },
+  {
+    "employee_code": "1001",
+    "full_name": "Ruwani Silva",
+    "designation": "QA Manager",
+    "department": "Quality Assurance",
+    "branch": "Ratmalana plant",
+    "status": "active",
+    "role": "supervisor",
+    "shift_start": "08:00",
+    "shift_end": "17:00",
+    "phone": "+94 77 111 2233",
+    "email": "ruwani.silva@synergypharma.lk",
+    "is_vip": false
+  }
+]

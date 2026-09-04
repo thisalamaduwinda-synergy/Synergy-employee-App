@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  The header is fixed rather than part of the scrolling content. targetSdk 35+
+  draws edge to edge, so a header that scrolled away would leave the white status
+  bar clock sitting on a pale background.
+
+  The overlap in the design is done by pulling the *scroll container* up by 40dp
+  rather than the card inside it — a negative margin on the first child would be
+  clipped at the scroll view's own top edge.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/surface_bg"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_header_gradient"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/space_16"
+        android:paddingTop="@dimen/space_12"
+        android:paddingBottom="52dp">
+
+        <!-- White tile: the mark is never knocked out onto the blue. -->
+        <FrameLayout
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/bg_rect_r10"
+            android:backgroundTint="@color/white"
+            android:padding="5dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/cd_logo"
+                android:scaleType="fitCenter"
+                android:src="@drawable/logo_mark" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_12"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/text_greeting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.88"
+                android:textColor="@color/white"
+                android:textSize="12.5sp"
+                tools:text="Good morning" />
+
+            <TextView
+                android:id="@+id/text_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                tools:text="Thisala M." />
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/button_notifications"
+            android:layout_width="@dimen/tap_target"
+            android:layout_height="@dimen/tap_target"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cd_notifications">
+
+            <ImageView
+                android:layout_width="@dimen/icon_lg"
+                android:layout_height="@dimen/icon_lg"
+                android:layout_gravity="center"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_bell"
+                app:tint="@color/white" />
+
+            <View
+                android:id="@+id/badge_unread"
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:layout_gravity="top|end"
+                android:layout_marginTop="11dp"
+                android:layout_marginEnd="11dp"
+                android:background="@drawable/bg_pill"
+                android:backgroundTint="@color/state_absent" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/refresh"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="-40dp"
+        android:layout_weight="1">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingBottom="@dimen/space_24">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- ====================== today's gate ====================== -->
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.Synergy.Card.Lift"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/space_16">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/space_14">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/text_today"
+                                style="@style/TextAppearance.Synergy.Overline"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                tools:text="Today · Thu 13 Aug" />
+
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/chip_face"
+                                style="@style/Widget.Synergy.Chip.Status"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:chipIcon="@drawable/ic_face"
+                                tools:text="Face verified" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/space_12"
+                            android:baselineAligned="false"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/text_gate_in"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/state_present"
+                                    android:textSize="21sp"
+                                    android:textStyle="bold"
+                                    tools:text="08:12" />
+
+                                <TextView
+                                    style="@style/TextAppearance.Synergy.Caption"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/home_gate_in"
+                                    android:textSize="10.5sp" />
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:background="@color/divider" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center_horizontal"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/text_gate_out"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/ink"
+                                    android:textSize="21sp"
+                                    android:textStyle="bold"
+                                    tools:text="—:—" />
+
+                                <TextView
+                                    style="@style/TextAppearance.Synergy.Caption"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/home_gate_out"
+                                    android:textSize="10.5sp" />
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:background="@color/divider" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="end"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/text_inside"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/synergy_blue_700"
+                                    android:textSize="21sp"
+                                    android:textStyle="bold"
+                                    tools:text="4h 48m" />
+
+                                <TextView
+                                    style="@style/TextAppearance.Synergy.Caption"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/home_inside"
+                                    android:textSize="10.5sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/space_10"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="@dimen/icon_sm"
+                                android:layout_height="@dimen/icon_sm"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_pin"
+                                app:tint="@color/muted" />
+
+                            <TextView
+                                android:id="@+id/text_location"
+                                style="@style/TextAppearance.Synergy.Caption"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/space_6"
+                                android:textSize="11sp"
+                                tools:text="Main Gate · Ratmalana plant" />
+                        </LinearLayout>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/button_gate_log"
+                            style="@style/Widget.Synergy.Button.Ghost"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/space_10"
+                            android:text="@string/home_view_gate_log" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- ====================== quick actions ====================== -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/space_12"
+                    android:layout_marginTop="@dimen/space_12"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <include
+                        android:id="@+id/action_leave"
+                        layout="@layout/include_quick_action"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <include
+                        android:id="@+id/action_absence"
+                        layout="@layout/include_quick_action"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <include
+                        android:id="@+id/action_overtime"
+                        layout="@layout/include_quick_action"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <include
+                        android:id="@+id/action_attendance"
+                        layout="@layout/include_quick_action"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+                </LinearLayout>
+
+                <!-- ================ missing gate record alert ================= -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_missing"
+                    style="@style/Widget.Synergy.Card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/space_16"
+                    android:layout_marginTop="@dimen/space_14"
+                    android:visibility="gone"
+                    tools:visibility="visible">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/space_12">
+
+                        <ImageView
+                            android:layout_width="@dimen/avatar_sm"
+                            android:layout_height="@dimen/avatar_sm"
+                            android:background="@drawable/bg_rect_r10"
+                            android:backgroundTint="@color/state_absent_bg"
+                            android:contentDescription="@null"
+                            android:padding="@dimen/space_6"
+                            android:src="@drawable/ic_warning"
+                            app:tint="@color/state_absent" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/space_10"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/text_missing_title"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/ink"
+                                android:textSize="13sp"
+                                android:textStyle="bold"
+                                tools:text="11 Aug — no gate record" />
+
+                            <TextView
+                                android:id="@+id/text_missing_sub"
+                                style="@style/TextAppearance.Synergy.Caption"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/space_2"
+                                android:textSize="11sp"
+                                tools:text="Submit a reason before 18 Aug" />
+                        </LinearLayout>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/button_submit_reason"
+                            style="@style/Widget.Synergy.Button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:minHeight="@dimen/button_height_sm"
+                            android:paddingHorizontal="@dimen/space_14"
+                            android:text="@string/action_submit"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- ====================== announcements ====================== -->
+                <TextView
+                    style="@style/TextAppearance.Synergy.Section"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/space_16"
+                    android:layout_marginTop="@dimen/space_20"
+                    android:text="@string/home_announcements" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/list_announcements"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_8"
+                    android:clipToPadding="false"
+                    android:nestedScrollingEnabled="false"
+                    android:paddingHorizontal="@dimen/space_16"
+                    tools:itemCount="2"
+                    tools:listitem="@layout/item_announcement" />
+
+                <TextView
+                    android:id="@+id/text_announcements_empty"
+                    style="@style/TextAppearance.Synergy.Caption"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/space_16"
+                    android:layout_marginTop="@dimen/space_8"
+                    android:text="@string/home_no_announcements"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</LinearLayout>

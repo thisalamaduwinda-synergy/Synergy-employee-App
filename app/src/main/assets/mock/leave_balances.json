@@ -1,0 +1,6 @@
+[
+  { "year": 0, "leave_type": "annual", "entitled_days": 21, "used_days": 14, "carried_forward": 1 },
+  { "year": 0, "leave_type": "casual", "entitled_days": 7,  "used_days": 3,  "carried_forward": 0 },
+  { "year": 0, "leave_type": "sick",   "entitled_days": 7,  "used_days": 5,  "carried_forward": 0 },
+  { "year": 0, "leave_type": "no_pay", "entitled_days": 0,  "used_days": 0,  "carried_forward": 0 }
+]

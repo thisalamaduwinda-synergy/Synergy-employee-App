@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Themed-icon (Android 13+) silhouette of the Synergy mark: the figure's stride
+  and the orbiting ring, flattened to a single colour as the platform requires.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <group
+        android:pivotX="54"
+        android:pivotY="54"
+        android:scaleX="0.62"
+        android:scaleY="0.62">
+        <!-- head -->
+        <path
+            android:pathData="M54,26 m-7,0 a7,9 0 1,0 14,0 a7,9 0 1,0 -14,0"
+            android:fillColor="#FF000000" />
+        <!-- leading stroke of the figure -->
+        <path
+            android:pathData="M38,20 C46,34 58,44 58,54 C58,64 46,76 34,90 C42,68 46,58 44,48 C42,38 38,28 38,20 Z"
+            android:fillColor="#FF000000" />
+        <!-- trailing arm -->
+        <path
+            android:pathData="M74,24 L74,58 L60,68 C62,54 66,38 74,24 Z"
+            android:fillColor="#FF000000" />
+        <!-- orbit ring -->
+        <path
+            android:pathData="M54,50 m-32,10 a32,13 0 1,0 64,0 a32,13 0 1,0 -64,0"
+            android:strokeColor="#FF000000"
+            android:strokeWidth="5"
+            android:fillColor="#00000000" />
+    </group>
+</vector>

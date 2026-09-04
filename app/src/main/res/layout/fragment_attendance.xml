@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/surface_bg"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_header_gradient"
+        android:orientation="vertical"
+        android:paddingBottom="48dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="52dp"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="@dimen/space_16"
+            android:text="@string/attendance_title"
+            android:textColor="@color/white"
+            android:textSize="19sp"
+            android:textStyle="bold" />
+
+        <!-- Month stepper. Paging beats a picker here: staff almost always want
+             this month or the one before it. -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/space_16"
+            android:background="@drawable/bg_rect_r12"
+            android:backgroundTint="@color/scrim_white_18"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/button_prev_month"
+                android:layout_width="@dimen/tap_target"
+                android:layout_height="@dimen/tap_target"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/attendance_prev_month"
+                android:padding="@dimen/space_14"
+                android:src="@drawable/ic_arrow_left"
+                app:tint="@color/white" />
+
+            <TextView
+                android:id="@+id/text_month"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="August 2026" />
+
+            <ImageButton
+                android:id="@+id/button_next_month"
+                android:layout_width="@dimen/tap_target"
+                android:layout_height="@dimen/tap_target"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/attendance_next_month"
+                android:padding="@dimen/space_14"
+                android:src="@drawable/ic_chevron_right"
+                app:tint="@color/white" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!--
+      Pulled up over the header so the summary card overlaps it. Doing this on
+      the scroll container rather than on the card is deliberate: a negative
+      margin on the first child would be clipped at the scroll view's top edge.
+    -->
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/refresh"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="-38dp"
+        android:layout_weight="1">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingHorizontal="@dimen/space_16"
+            android:paddingBottom="@dimen/space_24">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.Synergy.Card.Lift"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/space_14">
+
+                        <!-- Four counters: worked, OT, leave, absent -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:baselineAligned="false"
+                            android:orientation="horizontal">
+
+                            <include
+                                android:id="@+id/stat_worked"
+                                layout="@layout/include_stat"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1" />
+
+                            <include
+                                android:id="@+id/stat_ot"
+                                layout="@layout/include_stat"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1" />
+
+                            <include
+                                android:id="@+id/stat_leave"
+                                layout="@layout/include_stat"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1" />
+
+                            <include
+                                android:id="@+id/stat_absent"
+                                layout="@layout/include_stat"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/row_weekdays"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/space_14"
+                            android:orientation="horizontal" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/grid_calendar"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/space_4"
+                            android:nestedScrollingEnabled="false"
+                            tools:itemCount="35"
+                            tools:listitem="@layout/item_calendar_day" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/space_10"
+                            android:orientation="horizontal">
+
+                            <include
+                                android:id="@+id/legend_worked"
+                                layout="@layout/include_legend"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+
+                            <include
+                                android:id="@+id/legend_leave"
+                                layout="@layout/include_legend"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+
+                            <include
+                                android:id="@+id/legend_absent"
+                                layout="@layout/include_legend"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    style="@style/TextAppearance.Synergy.Section"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_20"
+                    android:text="@string/attendance_daily_record" />
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.Synergy.Card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_8">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingHorizontal="@dimen/space_14">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/list_days"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:nestedScrollingEnabled="false"
+                            tools:itemCount="4"
+                            tools:listitem="@layout/item_attendance_day" />
+
+                        <TextView
+                            android:id="@+id/text_empty"
+                            style="@style/TextAppearance.Synergy.Caption"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:paddingVertical="@dimen/space_24"
+                            android:text="@string/attendance_empty"
+                            android:visibility="gone" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</LinearLayout>

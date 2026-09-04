@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Colour swatch + label under the calendar. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingEnd="@dimen/space_12"
+    android:paddingStart="0dp">
+
+    <View
+        android:id="@+id/swatch"
+        android:layout_width="8dp"
+        android:layout_height="8dp"
+        android:background="@drawable/bg_rect_r8"
+        android:backgroundTint="@color/state_present" />
+
+    <TextView
+        android:id="@+id/label"
+        style="@style/TextAppearance.Synergy.Caption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_4"
+        android:textSize="10.5sp"
+        tools:text="Worked" />
+
+</LinearLayout>

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/surface_bg"
+    android:orientation="vertical">
+
+    <!--
+      Written inline rather than using include_header_simple because this header
+      also carries the two summary chips.
+    -->
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_header_gradient"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/space_14">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:minHeight="56dp"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/space_8">
+
+            <ImageButton
+                android:id="@+id/button_back"
+                android:layout_width="@dimen/tap_target"
+                android:layout_height="@dimen/tap_target"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/action_back"
+                android:padding="@dimen/space_12"
+                android:src="@drawable/ic_arrow_left"
+                app:tint="@color/white" />
+
+            <TextView
+                android:id="@+id/text_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                tools:text="Gate log — 12 Aug" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_2"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/space_16">
+
+            <TextView
+                android:id="@+id/chip_inside"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_pill"
+                android:backgroundTint="@color/scrim_white_22"
+                android:paddingHorizontal="@dimen/space_10"
+                android:paddingVertical="@dimen/space_4"
+                android:textColor="@color/white"
+                android:textSize="11.5sp"
+                android:textStyle="bold"
+                tools:text="Inside 8h 42m" />
+
+            <TextView
+                android:id="@+id/chip_ot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_8"
+                android:background="@drawable/bg_pill"
+                android:backgroundTint="@color/scrim_white_22"
+                android:paddingHorizontal="@dimen/space_10"
+                android:paddingVertical="@dimen/space_4"
+                android:textColor="@color/white"
+                android:textSize="11.5sp"
+                android:textStyle="bold"
+                tools:text="OT 1h 12m" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:padding="@dimen/space_16">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_timeline"
+                style="@style/Widget.Synergy.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="@dimen/space_14"
+                    android:paddingVertical="@dimen/space_10">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/list_events"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:nestedScrollingEnabled="false"
+                        tools:itemCount="4"
+                        tools:listitem="@layout/item_gate_event" />
+
+                    <TextView
+                        android:id="@+id/text_empty"
+                        style="@style/TextAppearance.Synergy.Caption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="@dimen/space_20"
+                        android:text="@string/gate_no_events"
+                        android:visibility="gone" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.Synergy.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_10">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/space_14">
+
+                    <include
+                        android:id="@+id/row_shift"
+                        layout="@layout/include_kv_row" />
+
+                    <include
+                        android:id="@+id/row_inside"
+                        layout="@layout/include_kv_row" />
+
+                    <include
+                        android:id="@+id/row_break"
+                        layout="@layout/include_kv_row" />
+
+                    <include
+                        android:id="@+id/row_late"
+                        layout="@layout/include_kv_row" />
+
+                    <include
+                        android:id="@+id/row_ot"
+                        layout="@layout/include_kv_row" />
+
+                    <!--
+                      Why the numbers above look the way they do: a missing gate
+                      OUT, or an HR edit. Shown right next to the dispute button
+                      because these are the two things worth disputing.
+                    -->
+                    <TextView
+                        android:id="@+id/text_provenance"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_10"
+                        android:background="@drawable/bg_rect_r10"
+                        android:backgroundTint="@color/slate_bg"
+                        android:lineSpacingMultiplier="1.35"
+                        android:padding="@dimen/space_10"
+                        android:textColor="@color/slate_deep"
+                        android:textSize="11.5sp"
+                        android:visibility="gone"
+                        tools:text="No gate OUT was recorded. HR closed the day at your shift end."
+                        tools:visibility="visible" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_report"
+                style="@style/Widget.Synergy.Button.Outlined"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_14"
+                android:text="@string/gate_report_incorrect" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_12"
+                android:background="@drawable/bg_rect_r12"
+                android:backgroundTint="@color/synergy_blue_50"
+                android:lineSpacingMultiplier="1.4"
+                android:padding="@dimen/space_12"
+                android:text="@string/gate_readonly_note"
+                android:textColor="@color/synergy_blue_800"
+                android:textSize="11.5sp" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

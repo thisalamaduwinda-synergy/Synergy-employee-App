@@ -1,0 +1,15 @@
+[
+  { "holiday_date": "--01-01", "name": "New Year's Day", "holiday_type": "company", "is_paid": true },
+  { "holiday_date": "--01-14", "name": "Tamil Thai Pongal Day", "holiday_type": "public", "is_paid": true },
+  { "holiday_date": "--02-04", "name": "Independence Day", "holiday_type": "public", "is_paid": true },
+  { "holiday_date": "--04-13", "name": "Sinhala & Tamil New Year Eve", "holiday_type": "public", "is_paid": true },
+  { "holiday_date": "--04-14", "name": "Sinhala & Tamil New Year", "holiday_type": "public", "is_paid": true },
+  { "holiday_date": "--05-01", "name": "May Day", "holiday_type": "public", "is_paid": true },
+  { "holiday_date": "--05-22", "name": "Vesak Poya", "holiday_type": "poya", "is_paid": true },
+  { "holiday_date": "--06-20", "name": "Poson Poya", "holiday_type": "poya", "is_paid": true },
+  { "holiday_date": "--07-19", "name": "Esala Poya", "holiday_type": "poya", "is_paid": true },
+  { "holiday_date": "--08-28", "name": "Nikini Poya", "holiday_type": "poya", "is_paid": true },
+  { "holiday_date": "--10-26", "name": "Vap Poya", "holiday_type": "poya", "is_paid": true },
+  { "holiday_date": "--11-24", "name": "Ill Poya", "holiday_type": "poya", "is_paid": true },
+  { "holiday_date": "--12-25", "name": "Christmas Day", "holiday_type": "public", "is_paid": true }
+]

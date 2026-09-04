@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!--
+      Payslip and attendance data flows over this connection, so cleartext is off
+      everywhere. When the HR API domain is fixed, add certificate pinning here:
+
+        <domain-config>
+          <domain includeSubdomains="true">hr.synergypharma.lk</domain>
+          <pin-set expiration="2027-12-31">
+            <pin digest="SHA-256">BASE64_OF_LEAF_SPKI</pin>
+            <pin digest="SHA-256">BASE64_OF_BACKUP_SPKI</pin>
+          </pin-set>
+        </domain-config>
+    -->
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>
