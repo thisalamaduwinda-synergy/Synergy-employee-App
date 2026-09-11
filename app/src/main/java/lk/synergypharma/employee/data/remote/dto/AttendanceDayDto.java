@@ -94,8 +94,9 @@ public final class AttendanceDayDto {
     public boolean reasonSubmitted;
 
     /**
-     * Omitted by the month endpoint to keep the payload small; always present on
-     * the single-day endpoint.
+     * Sent by both the month and the single-day endpoint: the home card, the
+     * running "inside" counter and the missing-record alert are all built from
+     * these events, so a month without scans would render every day as empty.
      */
     @SerializedName("scans")
     @Nullable

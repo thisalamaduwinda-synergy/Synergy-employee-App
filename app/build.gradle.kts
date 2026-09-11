@@ -27,9 +27,12 @@ android {
             applicationIdSuffix = ".debug"
             versionNameSuffix = "-debug"
             isMinifyEnabled = false
-            // Everything runs off MockApiService until the HR API exists.
-            buildConfigField("boolean", "USE_MOCK_DATA", "true")
-            buildConfigField("String", "API_BASE_URL", "\"https://hr-dev.synergypharma.lk/api/v1/\"")
+            // Debug talks to the recognition backend running on the dev machine.
+            // 10.0.2.2 is the emulator's alias for the host; on a real phone use
+            // the machine's LAN IP (same Wi-Fi). Flip USE_MOCK_DATA back to true
+            // to demo without a server.
+            buildConfigField("boolean", "USE_MOCK_DATA", "false")
+            buildConfigField("String", "API_BASE_URL", "\"http://10.0.2.2:8000/api/v1/\"")
         }
         release {
             isMinifyEnabled = true

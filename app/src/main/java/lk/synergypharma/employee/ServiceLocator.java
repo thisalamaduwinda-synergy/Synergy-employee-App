@@ -6,8 +6,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
 
 import lk.synergypharma.employee.data.api.MockSynergyApi;
+import lk.synergypharma.employee.data.api.RemoteSynergyApi;
 import lk.synergypharma.employee.data.api.SynergyApi;
 import lk.synergypharma.employee.data.local.PrefsManager;
+import lk.synergypharma.employee.data.remote.ApiClient;
 import lk.synergypharma.employee.data.repository.AbsenceRepository;
 import lk.synergypharma.employee.data.repository.AttendanceRepository;
 import lk.synergypharma.employee.data.repository.AuthRepository;
@@ -21,10 +23,9 @@ import lk.synergypharma.employee.data.repository.OvertimeRepository;
  *
  * <p><b>This is the switch.</b> Everything above it — every fragment, every
  * ViewModel — is written against {@code SynergyApi} and has no idea whether the
- * answers came from generated data or the HR server. Phase 9 is
- * {@link #createApi(Context)}: return the Retrofit-backed implementation instead
- * of {@link MockSynergyApi} and the whole app moves onto the real backend
- * without a screen changing.
+ * answers came from generated data or the HR server. {@code createApi} picks
+ * {@link RemoteSynergyApi} or {@link MockSynergyApi} from {@code USE_MOCK_DATA}
+ * and the whole app moves between them without a screen changing.
  *
  * <p>A hand-written locator rather than Hilt on purpose: for an app this size it
  * is the same amount of code, it adds no annotation processor to the build, and
@@ -55,8 +56,8 @@ public final class ServiceLocator {
     private final DirectoryRepository directoryRepository;
 
     private ServiceLocator(@NonNull Context context) {
-        this.api = createApi(context);
         this.prefs = new PrefsManager(context);
+        this.api = createApi(context, prefs);
 
         this.authRepository = new AuthRepository(api, prefs);
         this.attendanceRepository = new AttendanceRepository(api);
@@ -68,19 +69,15 @@ public final class ServiceLocator {
     }
 
     /**
-     * Phase 9 changes exactly this method:
-     *
-     * <pre>
-     * return BuildConfig.USE_MOCK_DATA
-     *         ? new MockSynergyApi(context)
-     *         : new RetrofitSynergyApi(ApiClient.create(prefs), context);
-     * </pre>
-     *
-     * and the mock package can then be deleted outright.
+     * The only place that decides mock vs. real. {@code USE_MOCK_DATA} is set
+     * per build type in {@code app/build.gradle.kts}; once every call in
+     * {@link RemoteSynergyApi} is real the mock package can be deleted outright.
      */
     @NonNull
-    private static SynergyApi createApi(@NonNull Context context) {
-        return new MockSynergyApi(context);
+    private static SynergyApi createApi(@NonNull Context context, @NonNull PrefsManager prefs) {
+        return BuildConfig.USE_MOCK_DATA
+                ? new MockSynergyApi(context)
+                : new RemoteSynergyApi(ApiClient.create(prefs), context);
     }
 
     public static void init(@NonNull Context context) {

@@ -1,6 +1,8 @@
 package lk.synergypharma.employee.ui.home;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -98,6 +100,26 @@ public final class HomeFragment extends BaseFragment {
         });
     }
 
+    /**
+     * How often the gate card re-reads the server while Home is on screen. The
+     * gate writes a scan the moment a face is accepted; this is what makes the
+     * card follow it without the employee pulling to refresh. One small request
+     * per employee per interval - negligible for the server.
+     */
+    static final long POLL_MS = 45_000L;
+
+    private final Handler poller = new Handler(Looper.getMainLooper());
+    private final Runnable pollTick = new Runnable() {
+        @Override
+        public void run() {
+            if (binding == null || viewModel == null) {
+                return;
+            }
+            viewModel.pollAttendance();
+            poller.postDelayed(this, POLL_MS);
+        }
+    };
+
     @Override
     public void onResume() {
         super.onResume();
@@ -106,6 +128,16 @@ public final class HomeFragment extends BaseFragment {
             viewModel.refresh();
         }
         firstResume = false;
+        poller.removeCallbacks(pollTick);
+        poller.postDelayed(pollTick, POLL_MS);
+    }
+
+    @Override
+    public void onPause() {
+        // No polling in the background: it would drain the battery for a card
+        // nobody is looking at, and onResume restarts it anyway.
+        poller.removeCallbacks(pollTick);
+        super.onPause();
     }
 
     // --------------------------------------------------------------- render
@@ -130,9 +162,20 @@ public final class HomeFragment extends BaseFragment {
         if (result == null) {
             return;
         }
-        binding.refresh.setRefreshing(result.isLoading());
+        boolean silent = viewModel.isSilentRefresh();
+        if (result.isLoading()) {
+            // A background poll keeps the last good card; only a deliberate
+            // pull-to-refresh shows the spinner.
+            if (!silent) {
+                binding.refresh.setRefreshing(true);
+            }
+            return;
+        }
+        binding.refresh.setRefreshing(false);
         if (result.isError()) {
-            toast(result.message == null ? getString(R.string.error_generic) : result.message);
+            if (!silent) {
+                toast(result.message == null ? getString(R.string.error_generic) : result.message);
+            }
             return;
         }
         if (!result.isSuccess() || result.data == null) {

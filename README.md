@@ -9,8 +9,10 @@ the one thing the gate cannot: a way to explain a day it has no record of.
 - **Stack:** Java 17 · Android Gradle Plugin 8.13.2 · minSdk 24 · targetSdk 36 ·
   Material 3 · MVVM · Navigation Component · ViewBinding
 - **Application id:** `lk.synergypharma.employee`
-- **Backend:** none yet — every screen runs off generated data. See
-  [Phase 9](#phase-9--swapping-in-the-real-hr-api).
+- **Backend:** the face-recognition system's FastAPI server, `/api/v1/me/…`
+  (`backend/app/api/v1/me.py`). Login, profile and attendance are real; the
+  rest still runs off generated data — see
+  [Phase 9](#phase-9--swapping-in-the-real-api).
 
 ---
 
@@ -267,6 +269,30 @@ but any future team screen must honour it.
 ---
 
 ## Phase 9 — swapping in the real API
+
+### Status
+
+Done, step one: `RemoteSynergyApi` + `ApiClient` (Retrofit, bearer token,
+silent refresh on 401). `USE_MOCK_DATA` is **false in debug** and the base URL
+is `http://10.0.2.2:8000/api/v1/` — the emulator's alias for the machine
+running the backend. `src/debug/res/xml/network_security_config.xml` allows
+cleartext for that build only.
+
+Real today: `login`, `logout`, `attendanceMonth`, `attendanceDay`. Everything
+else in `RemoteSynergyApi` is marked `// MOCK` and delegates to
+`MockSynergyApi` until its endpoint exists.
+
+To run it:
+
+1. Start the recognition backend (`uvicorn app.main:app --host 0.0.0.0 --port 8000`
+   from `backend/`). It creates the `employee_credentials` table on start.
+2. Issue an app password once:
+   `python scripts/set_employee_app_password.py 1213 "Temp@1234"`
+   (or `PUT /api/v1/employees/{id}/app-access` with an HR token).
+3. `./gradlew installDebug`, log in with `1213` / `Temp@1234`.
+
+On a physical phone replace `10.0.2.2` with the machine's LAN IP in
+`app/build.gradle.kts` and keep both on the same Wi-Fi.
 
 The contract is already written and compiled: `data/remote/ApiService.java` and
 `data/remote/dto/`. Hand that to whoever builds the employee API.

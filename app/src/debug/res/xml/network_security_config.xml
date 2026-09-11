@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  DEBUG ONLY. Overrides src/main/res/xml/network_security_config.xml so a debug
+  build can reach the FastAPI backend on the dev machine over plain HTTP
+  (emulator: 10.0.2.2, phone: the machine's LAN IP). Release keeps cleartext
+  off everywhere.
+-->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>
